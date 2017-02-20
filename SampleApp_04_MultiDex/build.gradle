@@ -12,8 +12,8 @@ apply plugin: 'me.leolin.gradle-android-aspectj'
 
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 24
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
         applicationId "me.leolin.sample04.app"
@@ -68,4 +68,10 @@ dependencies {
     androidTestCompile 'junit:junit:4.12'
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2'
     androidTestCompile 'com.android.support.test:runner:0.3'
+}
+
+configurations.all {
+    resolutionStrategy {
+        force 'com.android.support:support-annotations:23.1.1'
+    }
 }
