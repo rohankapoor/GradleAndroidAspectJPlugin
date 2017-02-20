@@ -33,7 +33,7 @@ class GradleAndroidAspectJPlugin implements Plugin<Project> {
             mavenCentral()
         }
 
-        def aspectjVersion = '1.8.5';
+        def aspectjVersion = '1.8.10';
         project.dependencies {
             compile "org.aspectj:aspectjrt:$aspectjVersion"
         }

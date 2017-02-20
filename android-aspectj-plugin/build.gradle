@@ -26,7 +26,7 @@ dependencies {
         jcenter()
     }
     ext {
-        aspectjVersion = '1.8.5';
+        aspectjVersion = '1.8.10';
     }
     compile gradleApi()
     compile localGroovy()
