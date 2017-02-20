@@ -4,14 +4,12 @@ buildscript {
     }
     dependencies {
         classpath 'org.gradle.api.plugins:gradle-nexus-plugin:0.7.1'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.0'
     }
 }
 
 apply plugin: 'groovy'
 apply plugin: 'maven'
 apply plugin: 'nexus'
-apply plugin: 'com.jfrog.bintray'
 
 def siteUrl = 'https://github.com/leolin310148/GradleAndroidAspectJPlugin'      // Homepage URL of the library
 def gitUrl = 'https://github.com/leolin310148/GradleAndroidAspectJPlugin.git'   // Git repository URL
@@ -81,23 +79,3 @@ modifyPom {
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
-bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-
-    configurations = ['archives']
-
-
-    pkg {
-        repo = 'maven'
-        name = 'gradle-android-aspectJ-plugin'
-        desc = 'Gradle plugin for android with aspectJ'
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        licenses = ['Apache-2.0']
-        labels = ['gradle', 'android', 'aspectJ']
-        publicDownloadNumbers = true
-        publish = true
-    }
-}
