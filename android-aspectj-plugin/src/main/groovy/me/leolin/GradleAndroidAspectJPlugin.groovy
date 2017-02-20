@@ -15,9 +15,9 @@ class GradleAndroidAspectJPlugin implements Plugin<Project> {
 
     @Override
     void apply(Project project) {
+
         def isAppProject = project.plugins.withType(AppPlugin)
         def isLibProject = project.plugins.withType(LibraryPlugin)
-        def hasRetrolambda = project.plugins.hasPlugin('me.tatarka.retrolambda')
 
         final def log = project.logger
         final def variants
@@ -78,13 +78,8 @@ class GradleAndroidAspectJPlugin implements Plugin<Project> {
                     }
                 }
 
-                if (hasRetrolambda) {
-                    project.tasks["compileRetrolambda$buildTypeName"].finalizedBy(aopTask)
-                } else {
-                    variant.javaCompile.finalizedBy(aopTask)
-                }
+                variant.javaCompile.finalizedBy(aopTask)
             }
         }
     }
-
 }
